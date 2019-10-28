@@ -625,6 +625,13 @@ int main(int argc, char *argv[])
          }
       }
 
+#ifdef AMPI
+      if (steps % 10 == 0)
+      {
+         AMPI_Migrate(AMPI_INFO_LB_SYNC);
+      }
+#endif
+
       if (amr)
       {
          Vector &error_est = oper.GetZoneMaxVisc();

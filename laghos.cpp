@@ -613,6 +613,13 @@ int main(int argc, char *argv[])
             e_ofs.close();
          }
       }
+
+#ifdef AMPI
+      if (steps % 10 == 0)
+      {
+         AMPI_Migrate(AMPI_INFO_LB_SYNC);
+      }
+#endif
    }
 
    switch (ode_solver_type)

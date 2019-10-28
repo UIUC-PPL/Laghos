@@ -65,7 +65,7 @@ using namespace mfem;
 using namespace mfem::hydrodynamics;
 
 // Choice for the problem setup.
-int problem;
+thread_local int problem;
 
 double rho0(const Vector &);
 void v0(const Vector &, Vector &);

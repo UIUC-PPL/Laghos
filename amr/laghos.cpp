@@ -55,7 +55,7 @@ using namespace mfem;
 using namespace mfem::hydrodynamics;
 
 // Choice for the problem setup.
-int problem;
+thread_local int problem;
 
 void display_banner(ostream & os);
 

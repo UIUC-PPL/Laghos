@@ -26,8 +26,8 @@ namespace mfem
 namespace hydrodynamics
 {
 
-const Tensors1D *tensors1D = NULL;
-const FastEvaluator *evaluator = NULL;
+const thread_local Tensors1D *tensors1D = NULL;
+const thread_local FastEvaluator *evaluator = NULL;
 
 Tensors1D::Tensors1D(int H1order, int L2order, int nqp1D)
    : HQshape1D(H1order + 1, nqp1D),

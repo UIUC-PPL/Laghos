@@ -83,7 +83,7 @@ struct Tensors1D
 
    Tensors1D(int H1order, int L2order, int nqp1D);
 };
-extern const Tensors1D *tensors1D;
+extern const thread_local Tensors1D *tensors1D;
 
 class FastEvaluator
 {
@@ -99,7 +99,7 @@ public:
    // The output is J_ij = d(vec_i) / d(x_j) with ij = 1 .. dim.
    void GetVectorGrad(const DenseMatrix &vec, DenseTensor &J) const;
 };
-extern const FastEvaluator *evaluator;
+extern const thread_local FastEvaluator *evaluator;
 
 // This class is used only for visualization. It assembles (rho, phi) in each
 // zone, which is used by LagrangianHydroOperator::ComputeDensity to do an L2
